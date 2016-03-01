@@ -35,7 +35,6 @@
     "slug": "^0.9.1"
   },
   "devDependencies": {
-    "babel-eslint": "^5.0.0-beta6",
     "babel-loader": "^6.2.4",
     "babel-plugin-react-transform": "^2.0.0",
     "babel-polyfill": "^6.3.14",
