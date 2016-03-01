@@ -7,3 +7,4 @@ dump.rdb
 public/*
 static/dist
 static/styles/app.min.css
+static/styles/app.css
