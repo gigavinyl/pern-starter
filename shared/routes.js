@@ -1,3 +1,4 @@
+/* eslint no-unused-vars:0 */
 import { Route, IndexRoute } from 'react-router';
 import React from 'react';
 import App from './container/App';

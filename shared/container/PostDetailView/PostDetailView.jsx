@@ -1,3 +1,4 @@
+/* eslint no-unused-vars: 0 */
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import * as Actions from '../../redux/actions/actions';
@@ -25,11 +26,12 @@ class PostDetailView extends Component {
   render() {
     return (
       <div>
-        <Header onClick={function noop() {}} handleLogoClick={this.handleLogoClick}/>
+        <Header onClick={function noop() {}} handleLogoClick={this.handleLogoClick} />
         <div className="container">
           <div className="single-post post-detail">
             <h3 className="post-title">{this.props.post.title}</h3>
             <p className="author-name">By {this.props.post.name}</p>
+            <p className="post-date">On: {this.props.post.dateadded}</p>
             <p className="post-desc">{this.props.post.content}</p>
           </div>
         </div>
@@ -54,6 +56,8 @@ PostDetailView.propTypes = {
     content: PropTypes.string.isRequired,
     slug: PropTypes.string.isRequired,
     cuid: PropTypes.string.isRequired,
+    dateadded: PropTypes.string.isRequired,
+    updateddate: PropTypes.string,
   }).isRequired,
   dispatch: PropTypes.func.isRequired,
 };

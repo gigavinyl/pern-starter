@@ -1,5 +1,5 @@
-var webpack = require('webpack');
-var ExtractTextPlugin = require('extract-text-webpack-plugin');
+const webpack = require('webpack');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
   devtool: 'source-map',
@@ -10,23 +10,20 @@ module.exports = {
     path: __dirname + '/static/dist/',
     filename: 'bundle.js',
   },
-  
+
   resolve: {
     extensions: ['', '.js', '.jsx'],
   },
-  
+
   module: {
-    loaders: [
-      {
-        test: /\.css$/,
-        loader: ExtractTextPlugin.extract('style','css?modules'),
-      },
-      {
-        test: /\.jsx*$/,
-        exclude: /node_modules/,
-        loader: 'babel',
-      }
-    ],
+    loaders: [{
+      test: /\.css$/,
+      loader: ExtractTextPlugin.extract('style', 'css?modules'),
+    }, {
+      test: /\.jsx*$/,
+      exclude: 'node_modules',
+      loader: 'babel',
+    }],
   },
 
   plugins: [

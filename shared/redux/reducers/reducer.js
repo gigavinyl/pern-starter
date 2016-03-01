@@ -12,8 +12,9 @@ const postReducer = (state = initialState, action) => {
           content: action.content,
           slug: action.slug,
           cuid: action.cuid,
-          _id: action._id,
-        }, ...state.posts],
+          dateadded: action.dateadded,
+          updateddate: action.updateddate,
+        }].concat(state.posts),
         post: state.post };
 
     case ActionTypes.CHANGE_SELECTED_POST :
@@ -36,7 +37,7 @@ const postReducer = (state = initialState, action) => {
 
     case ActionTypes.DELETE_POST :
       return {
-        posts: state.posts.filter((post) => post._id !== action.post._id),
+        posts: state.posts.filter((post) => post.cuid !== action.post.cuid),
       };
 
     default:

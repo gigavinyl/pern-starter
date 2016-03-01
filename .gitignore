@@ -6,4 +6,5 @@ dump.rdb
 .vscode/
 public/*
 static/dist
-static/css/app.min.css
+static/styles/app.min.css
+static/styles/app.css

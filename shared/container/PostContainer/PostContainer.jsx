@@ -1,3 +1,4 @@
+/* eslint no-unused-vars:0 */
 import React, { PropTypes, Component } from 'react';
 import PostListView from '../PostListView/PostListView';
 import PostCreateView from '../../components/PostCreateView/PostCreateView';
@@ -24,8 +25,8 @@ class PostContainer extends Component {
     e.preventDefault();
   }
 
-  add(name, title, content) {
-    this.props.dispatch(Actions.addPostRequest({ name, title, content }));
+  add(name, title, content, dateadded) {
+    this.props.dispatch(Actions.addPostRequest({ name, title, content, dateadded }));
     this.setState({
       showAddPost: false,
     });
@@ -37,8 +38,9 @@ class PostContainer extends Component {
         <Header onClick={this.handleClick} />
         <div className="container">
           <PostCreateView addPost={this.add}
-            showAddPost={this.state.showAddPost}/>
-          <PostListView posts={this.props.posts}/>
+            showAddPost={this.state.showAddPost}
+          />
+          <PostListView posts={this.props.posts} />
         </div>
         <Footer />
       </div>
@@ -62,6 +64,8 @@ PostContainer.propTypes = {
     name: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
     content: PropTypes.string.isRequired,
+    dateadded: PropTypes.string.isRequired,
+    updateddate: PropTypes.string,
   })).isRequired,
   dispatch: PropTypes.func.isRequired,
 };

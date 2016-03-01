@@ -1,7 +1,8 @@
+/* eslint no-unused-vars: 0 */
 import * as ActionTypes from '../constants/constants';
 import fetch from 'isomorphic-fetch';
 
-const baseURL = typeof window === 'undefined' ? process.env.BASE_URL || (`http://localhost:${(process.env.PORT || 8000)}`) : '';
+const baseURL = typeof window === 'undefined' ? process.env.BASE_URL || (`http://localhost:${(process.env.PORT || 5000)}`) : '';
 
 export function addPost(post) {
   return {
@@ -11,7 +12,8 @@ export function addPost(post) {
     content: post.content,
     slug: post.slug,
     cuid: post.cuid,
-    _id: post._id,
+    dateadded: post.dateadded,
+    updateddate: post.updateddate,
   };
 }
 
@@ -85,7 +87,7 @@ export function deletePostRequest(post) {
     fetch(`${baseURL}/api/deletePost`, {
       method: 'post',
       body: JSON.stringify({
-        postId: post._id,
+        postcuid: post.cuid,
       }),
       headers: new Headers({
         'Content-Type': 'application/json',
