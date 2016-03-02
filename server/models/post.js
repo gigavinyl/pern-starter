@@ -5,6 +5,7 @@ function Post() {
 }
 
 Model.extend(Post);
+Post.idColumn = 'cuid';
 Post.tableName = 'posts';
 
 export default Post;
