@@ -8,7 +8,7 @@ function Header(props, context) {
     <div className="header">
       <div className="header-content">
         <h1 className="site-title">
-          <Link to="/" onClick={props.handleLogoClick}>PRK Starter Blog</Link>
+          <Link to="/" onClick={props.handleLogoClick}>PERN Starter Blog</Link>
         </h1>
         {
           context.router.isActive('/', true)
