@@ -1,39 +1,22 @@
-![](http://res.cloudinary.com/hashnode/image/upload/w_200/v1455647564/static_imgs/mern/imgs/favicon-mern.png)
+![](http://res.cloudinary.com/hashnode/image/upload/w_200/v1455647564/static_imgs/PERN/imgs/favicon-PERN.png)
 
-# mern-starter
-![title](https://travis-ci.org/Hashnode/mern-starter.svg?branch=master)
-[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
+# pern-starter :rocket:
 
+PERN is a scaffolding tool which makes it easy to build isomorphic apps using Mongo, Express, React and NodeJS. It minimizes the setup time and gets you up to speed using proven technologies.
 
-MERN is a scaffolding tool which makes it easy to build isomorphic apps using Mongo, Express, React and NodeJS. It minimizes the setup time and gets you up to speed using proven technologies.
-
-- [Website](http://mern.io)
-- [Documentation](http://mern.io/documentation.html)
-- [Discussions](https://hashnode.com/n/mern)
-
-## Quickstart
-
-```
-  npm install -g mern-cli
-  mern your_new_app
-  cd your_new_app
-  npm install
-  npm start
-```
-
-**Note : Please make sure your MongoDB is running and cross-env is installed globally before running `npm start`.** For MongoDB installation guide see [this](https://docs.mongodb.org/v3.0/installation/).
+**Note : Please make sure your postgres database is running and cross-env is installed globally before running `npm start`.**
 
 ## File Structure
 
 ### Webpack Configs
 
-MERN uses Webpack for bundling modules. There are two types of Webpack configs provided `webpack.config.dev.js` (for development) and `webpack.config.prod.js` (for production).
+PERN uses Webpack for bundling modules. There are two types of Webpack configs provided `webpack.config.dev.js` (for development) and `webpack.config.prod.js` (for production).
 
 The Webpack configuration is minimal and beginner-friendly. You can customize and add more features to it for production build.
 
 ### Server
 
-MERN uses express web framework. Our app sits in server.js where we check for NODE_ENV.
+PERN uses express web framework. Our app sits in server.js where we check for NODE_ENV.
 
 If NODE_ENV is development we apply Webpack middlewares for bundling and Hot Module Replacement.
 
@@ -98,10 +81,5 @@ Shared directory contains all the components, routes, actions and reducers.
 
 Index.js simply does client side rendering using the data provided from `window.__INITIAL_STATE__`.
 
-## Roadmap
-- [ ] Add Security measures like CSRF etc.
-- [ ] Add Auth flow and handle sessions.
-- [ ] Add option to generate controllers and models through [CLI](https://github.com/Hashnode/mern-cli). (Basically anything that reduces writing boilerplate code)
-
 ## License
-MERN is released under the [MIT License](http://www.opensource.org/licenses/MIT).
+PERN is released under the [MIT License](http://www.opensource.org/licenses/MIT).

@@ -4,10 +4,10 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 module.exports = {
   devtool: 'source-map',
 
-  entry: __dirname + "/client/index.js",
+  entry: `${__dirname}/client/index.js`,
 
   output: {
-    path: __dirname + '/static/dist/',
+    path: `${__dirname}/static/dist/`,
     filename: 'bundle.js',
   },
 
@@ -31,13 +31,13 @@ module.exports = {
     new webpack.DefinePlugin({
       'process.env': {
         'NODE_ENV': JSON.stringify('production'),
-      }
+      },
     }),
     new webpack.optimize.UglifyJsPlugin({
       compressor: {
         warnings: false,
-      }
+      },
     }),
-    new ExtractTextPlugin("app.css"),
+    new ExtractTextPlugin('app.css'),
   ],
 };

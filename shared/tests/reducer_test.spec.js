@@ -1,78 +1,86 @@
-/* eslint no-unused-vars: 0 */
-import expect from 'expect';
+import test from 'tape';
 import postReducer from '../redux/reducers/reducer';
 import deepFreeze from 'deep-freeze';
 import * as ActionTypes from '../redux/constants/constants';
 
-describe('reducer tests', () => {
-  it('action ADD_POST is working', () => {
-    const stateBefore = { posts: [], post: null };
-    const stateAfter = { posts: [{
+test('action ADD_POST is working', (t) => {
+  const stateBefore = { posts: [], post: null };
+  const stateAfter = { posts: [{
+    name: 'prank',
+    title: 'first post',
+    content: 'Hello world!',
+    cuid: null,
+    slug: 'first-post',
+    dateadded: null,
+    updateddate: undefined,
+  }], post: null };
+
+  const action = {
+    type: ActionTypes.ADD_POST,
+    name: 'prank',
+    title: 'first post',
+    content: 'Hello world!',
+    cuid: null,
+    slug: 'first-post',
+    dateadded: null,
+    updateddate: undefined,
+  };
+  deepFreeze(stateBefore);
+  deepFreeze(action);
+  t.deepEqual(postReducer(stateBefore, action), stateAfter);
+  t.end();
+});
+
+test('action ADD_SELECTED_POST is working', (t) => {
+  const stateBefore = {
+    posts: [{
       name: 'prank',
       title: 'first post',
       content: 'Hello world!',
-      _id: null,
       cuid: null,
       slug: 'first-post',
-    }], post: null };
+      dateadded: null,
+      updateddate: undefined,
+    }],
+    selectedPost: null,
+  };
 
-    const action = {
-      type: ActionTypes.ADD_POST,
+  const stateAfter = {
+    posts: [{
       name: 'prank',
       title: 'first post',
       content: 'Hello world!',
-      _id: null,
       cuid: null,
       slug: 'first-post',
-    };
-    deepFreeze(stateBefore);
-    deepFreeze(action);
-    expect(stateAfter).toEqual(postReducer(stateBefore, action));
-  });
+      dateadded: null,
+      updateddate: undefined,
+    }],
+    post: {
+      name: 'prank',
+      title: 'first post',
+      content: 'Hello world!',
+      cuid: null,
+      slug: 'first-post',
+      dateadded: null,
+      updateddate: undefined,
+    },
+  };
 
-  it('action ADD_SELECTED_POST is working', () => {
-    const stateBefore = {
-      posts: [{
-        name: 'prank',
-        title: 'first post',
-        content: 'Hello world!',
-        _id: null,
-        slug: 'first-post',
+  const action = {
+    type: ActionTypes.ADD_SELECTED_POST,
+    post: {
+      name: 'prank',
+      title: 'first post',
+      content: 'Hello world!',
+      cuid: null,
+      slug: 'first-post',
+      dateadded: null,
+      updateddate: undefined,
+    },
+  };
 
-      }],
-      selectedPost: null,
-    };
-
-    const stateAfter = {
-      posts: [{
-        name: 'prank',
-        title: 'first post',
-        content: 'Hello world!',
-        _id: null,
-        slug: 'first-post',
-      }],
-      post: {
-        name: 'prank',
-        title: 'first post',
-        content: 'Hello world!',
-        _id: null,
-        slug: 'first-post',
-      },
-    };
-
-    const action = {
-      type: ActionTypes.ADD_SELECTED_POST,
-      post: {
-        name: 'prank',
-        title: 'first post',
-        content: 'Hello world!',
-        _id: null,
-        slug: 'first-post',
-      },
-    };
-
-    deepFreeze(stateBefore);
-    deepFreeze(action);
-    expect(stateAfter).toEqual(postReducer(stateBefore, action));
-  });
+  deepFreeze(stateBefore);
+  deepFreeze(action);
+  t.deepEqual(postReducer(stateBefore, action), stateAfter);
+  t.end();
 });

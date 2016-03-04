@@ -2,7 +2,9 @@
   "name": "prk-starter",
   "version": "0.0.1",
   "scripts": {
-    "test": "mocha shared/tests/*.spec.js --compilers js:babel-register",
+    "test": "npm run test:shared && npm run test:server",
+    "test:shared": "tape -r babel-register shared/tests/*.spec.js | tap-diff",
+    "test:server": "echo 'Coming soon!'",
     "start:dev": "cross-env NODE_ENV=development node index.js",
     "start": "cross-env NODE_ENV=production node index.js",
     "bs": "npm run clean && npm run build && npm run start:prod",
@@ -40,28 +42,29 @@
     "redux": "^3.1.5",
     "redux-thunk": "^1.0.3",
     "sanitize-html": "^1.11.3",
-    "slug": "^0.9.1"
+    "slug": "^0.9.1",
+    "tap-diff": "^0.1.1",
+    "tape": "^4.4.0"
   },
   "devDependencies": {
     "babel-loader": "^6.2.4",
     "bootstrap": "^3.3.6",
-    "chai": "^3.5.0",
     "clean-css": "^3.4.9",
     "css-loader": "^0.23.1",
     "css-modules-require-hook": "^3.0.0",
     "deep-freeze": "0.0.1",
-    "expect": "^1.13.4",
-    "expect-jsx": "^2.2.2",
+    "extend-tape": "^1.2.0",
     "extract-text-webpack-plugin": "^1.0.1",
     "file-loader": "^0.8.5",
     "less": "^2.6.0",
     "less-plugin-clean-css": "^1.5.1",
-    "mocha": "^2.4.5",
     "react-addons-test-utils": "^0.14.7",
     "react-transform-hmr": "^1.0.2",
     "rimraf": "^2.5.1",
     "style-loader": "^0.13.0",
     "supertest": "^1.1.0",
+    "tape-jsx-equals": "^1.0.0",
+    "tape-redux": "0.0.3",
     "url-loader": "^0.5.7",
     "webpack": "^1.12.12",
     "webpack-dev-middleware": "^1.5.1",
@@ -87,7 +90,8 @@
       "arrow-body-style": [
         0
       ],
-      "consistent-return": 0
+      "consistent-return": 0,
+      "no-unused-vars": 0
     }
   },
   "babel": {
