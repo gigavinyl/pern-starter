@@ -23,11 +23,16 @@ module.exports = {
       test: /\.jsx*$/,
       exclude: 'node_modules',
       loader: 'babel',
+      query: {
+        babelrc: false,
+        presets: ['react', 'es2015-webpack', 'stage-2', 'async-to-bluebird'],
+        cacheDirectory: true,
+      },
     }],
   },
 
   plugins: [
-    new webpack.optimize.OccurenceOrderPlugin(),
+    new webpack.optimize.OccurrenceOrderPlugin(),
     new webpack.DefinePlugin({
       'process.env': {
         'NODE_ENV': JSON.stringify('production'),

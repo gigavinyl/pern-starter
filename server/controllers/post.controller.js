@@ -1,7 +1,6 @@
 import Post from '../models/post';
 import slug from 'slug';
 import cuid from 'cuid';
-import moment from 'moment';
 import sanitizeHtml from 'sanitize-html';
 
 export function getPosts(req, res) {
@@ -29,7 +28,7 @@ export function addPost(req, res) {
 
   newPost.slug = slug(newPost.title.toLowerCase(), { lowercase: true });
   newPost.cuid = cuid();
-  newPost.dateadded = moment().format('YYYY-MM-DD HH:mm:ssZ');
+  newPost.dateadded = new Date();
   newPost.updateddate = null;
   Post.query().insert(newPost).then((saved) => {
     res.json({ post: saved });
@@ -43,7 +42,7 @@ export function getPost(req, res) {
   const newSlug = req.query.slug.split('-');
   const newCuid = newSlug[newSlug.length - 1];
   Post.query().where('cuid', newCuid).then((post) => {
-    res.json({ post });
+    res.json({ post: post[0] });
   })
   .catch((err) => {
     res.status(500).send(err);

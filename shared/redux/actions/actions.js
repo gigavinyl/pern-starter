@@ -7,11 +7,11 @@ const baseURL = typeof window === 'undefined' ? process.env.BASE_URL || (`http:/
 export function addPost(post) {
   return {
     type: ActionTypes.ADD_POST,
-    cuid: post.cuid,
     name: post.name,
     title: post.title,
     content: post.content,
     slug: post.slug,
+    cuid: post.cuid,
     dateadded: post.dateadded,
     updateddate: post.updateddate,
   };
@@ -87,7 +87,7 @@ export function deletePostRequest(post) {
     fetch(`${baseURL}/api/deletePost`, {
       method: 'post',
       body: JSON.stringify({
-        postcuid: post.cuid,
+        postId: post.cuid,
       }),
       headers: new Headers({
         'Content-Type': 'application/json',

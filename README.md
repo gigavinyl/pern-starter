@@ -1,5 +1,3 @@
-![](http://res.cloudinary.com/hashnode/image/upload/w_200/v1455647564/static_imgs/PERN/imgs/favicon-PERN.png)
-
 # pern-starter :rocket:
 
 PERN is a scaffolding tool which makes it easy to build isomorphic apps using Mongo, Express, React and NodeJS. It minimizes the setup time and gets you up to speed using proven technologies.

@@ -26,7 +26,9 @@ module.exports = {
       exclude: [/node_modules/, /.+\.config.js/],
       loader: 'babel',
       query: {
-        presets: ['react-hmre'],
+        babelrc: false,
+        presets: ['react-hmre', 'react', 'es2015-webpack', 'stage-2', 'async-to-bluebird'],
+        cacheDirectory: true,
       },
     }],
   },
