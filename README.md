@@ -1,4 +1,5 @@
 # pern-starter :rocket:
+[![Build Status](https://travis-ci.org/gigavinyl/pern-starter.svg?branch=master)](https://travis-ci.org/gigavinyl/pern-starter)
 
 PERN is a scaffolding tool which makes it easy to build isomorphic apps using Mongo, Express, React and NodeJS. It minimizes the setup time and gets you up to speed using proven technologies.
 
