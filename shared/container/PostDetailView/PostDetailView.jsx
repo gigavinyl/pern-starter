@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
+import TimeAgo from 'react-timeago';
 import * as Actions from '../../redux/actions/actions';
-import Time from 'react-time';
 import Header from '../../components/Header/Header';
 import Footer from '../../components/Footer/Footer';
 
@@ -31,7 +31,7 @@ class PostDetailView extends Component {
           <div className="single-post post-detail">
             <h3 className="post-title">{this.props.post.title}</h3>
             <p className="author-name">By {this.props.post.name}</p>
-            <Time value={this.props.post.dateadded} titleFormat="YYYY/MM/DD HH:mm" relative />
+            <TimeAgo date={this.props.post.dateadded} />
             <p className="post-desc">{this.props.post.content}</p>
           </div>
         </div>

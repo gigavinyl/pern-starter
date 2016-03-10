@@ -1,6 +1,5 @@
-/* eslint no-unused-vars: 0 */
-/* eslint-disable prefer-template*/
 import React, { PropTypes, Component } from 'react';
+import { Navbar, Nav, NavItem } from 'react-bootstrap';
 import { Link } from 'react-router';
 
 function Header(props, context) {
@@ -8,12 +7,12 @@ function Header(props, context) {
     <div className="header">
       <div className="header-content">
         <h1 className="site-title">
-          <Link to="/" onClick={props.handleLogoClick}>PERN Starter Blog</Link>
+          <Link to="/" onClick={props.handleLogoClick}>MERN Starter Blog</Link>
         </h1>
         {
           context.router.isActive('/', true)
             ? <a className="add-post-button" href="#" onClick={props.onClick}>Add Post</a>
-            : null
+          : null
         }
       </div>
     </div>

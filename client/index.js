@@ -1,4 +1,3 @@
-/* eslint no-unused-vars: 0 */
 'use-strict';
 
 import { configureStore } from '../shared/redux/store/configureStore';

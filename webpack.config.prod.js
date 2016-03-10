@@ -25,7 +25,7 @@ module.exports = {
       loader: 'babel',
       query: {
         babelrc: false,
-        presets: ['react', 'es2015-webpack', 'stage-2', 'async-to-bluebird'],
+        presets: ['react', 'es2015-webpack', 'stage-0', 'async-to-bluebird'],
         cacheDirectory: true,
       },
     }],
